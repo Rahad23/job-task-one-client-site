@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import { RouterProvider } from "react-router-dom";
+import ParticlesComponent from "./component/particlesJs/ParticlesJs";
+import { router } from "./router/Router";
+import { SocialContext } from './contextAPI/ContextApi';
 
 function App() {
+  const {dark}= useContext(SocialContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <RouterProvider router={router}></RouterProvider>
+    {
+     dark && <ParticlesComponent />
+    }  
     </div>
   );
 }
