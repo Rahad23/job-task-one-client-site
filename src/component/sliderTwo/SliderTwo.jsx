@@ -4,9 +4,11 @@ import friends from '../../assets/sliderImg/recipeIMG07.svg';
 import { Link } from 'react-router-dom';
 import { SocialContext } from '../../contextAPI/ContextApi';
 import PostForm from '../postSection/PostForm';
+// import { Timestamp } from 'react-timestamp';
+
 const SliderTwo = () => {
     const {userData, dark} = useContext(SocialContext);
-    // console.log(userData);
+
     return (
         <div>
             <div className='flex justify-around container mx-auto items-center'>

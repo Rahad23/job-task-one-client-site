@@ -34,7 +34,7 @@ const PostForm = () => {
           profileURL: userData?.photoURL
         }
         if (data?.data?.url) {
-          fetch('https://job-task-server-theta.vercel.app/userPosts', {
+          fetch('http://localhost:5000/userPosts', {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -11,8 +11,10 @@ import { toast } from 'react-hot-toast';
 import { GoogleAuthProvider } from 'firebase/auth';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+
 const LoginForm = () => {
   const navigate = useNavigate();
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const {loginUserEmailAndPassword, dark, googlePopupLogin} = useContext(SocialContext);
     const loginData=(data)=>{
@@ -23,6 +25,13 @@ const LoginForm = () => {
         // Signed in 
         const user = userCredential.user;
         toast.success("Login Successful")
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'Welcome to social site',
+          showConfirmButton: false,
+          timer: 3000
+        })
         navigate('/');
         // ...
       })

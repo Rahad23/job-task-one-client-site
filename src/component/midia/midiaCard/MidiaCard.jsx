@@ -10,17 +10,18 @@ const MidiaCard = ({ data }) => {
     const { userData } = useContext(SocialContext);
     // console.log(userData)
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
-    const comment = (data) => {
-        const { comment } = data;
+    const comment = (datas) => {
+        const { comment } = datas;
         const commnetsData = {
             comment,
             CommentEmail: userData?.email,
             photoURL: userData?.photoURL,
             name: userData?.displayName,
-            postId: data?._id
+            postId: data?._id,
+            commentTime: new Date().getTime(),
         }
         if (comment) {
-            fetch('https://job-task-server-theta.vercel.app/comments', {
+            fetch('http://localhost:5000/comments', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",

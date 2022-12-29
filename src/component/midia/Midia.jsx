@@ -5,7 +5,7 @@ import MidiaCard from './midiaCard/MidiaCard';
 const Midia = () => {
     const [postData, setPostData] = useState([]);
     useEffect(() => {
-        fetch('https://job-task-server-theta.vercel.app/userPosts')
+        fetch('http://localhost:5000/userPosts')
             .then(res => res.json())
             .then(data => setPostData(data))
     }, [postData])

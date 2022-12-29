@@ -41,7 +41,7 @@ const ParticlesComponent = (props) => {
       particles: {
         links: {
           enable: true, // enabling this will make particles linked together
-          distance: 0, // maximum distance for linking the particles
+          distance: 4, // maximum distance for linking the particles
         },
         move: {
           enable: true, // enabling this will make particles move in the canvas
