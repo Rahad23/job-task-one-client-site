@@ -5,10 +5,15 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-hot-toast';
 import { useContext } from 'react';
 import { SocialContext } from '../../../contextAPI/ContextApi';
+import Comments from '../../comment/Comments';
 const MidiaCard = ({ data }) => {
 
     const { userData } = useContext(SocialContext);
-    // console.log(userData)
+//     console.log(userData)
+//     let date = new Date().toLocaleDateString();
+// console.log(date);
+
+
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
     const comment = (datas) => {
         const { comment } = datas;
@@ -19,6 +24,8 @@ const MidiaCard = ({ data }) => {
             name: userData?.displayName,
             postId: data?._id,
             commentTime: new Date().getTime(),
+            submitDate: new Date().toLocaleDateString(),
+
         }
         if (comment) {
             fetch('http://localhost:5000/comments', {
@@ -40,7 +47,7 @@ const MidiaCard = ({ data }) => {
         }
     }
     const { aboutPost, postTitle, profileURL, url, userName, _id } = data;
-    // console.log(data);
+    console.log(data);
     const shortString = aboutPost.slice(0, 400);
     // console.log(shortString.length);
     return (
@@ -70,6 +77,7 @@ const MidiaCard = ({ data }) => {
                             </div>
                         </div>
                     </form>
+                    <Comments postId={data?._id}></Comments>
                 </div>
             </div>
         </div>
